@@ -1,0 +1,13 @@
+    Esse é um código embedado:
+
+    <link rel="stylesheet" href="{% static '/styles/style.css' %}">
+
+Obs: Quando usamos código Python junto ao HTML,
+chamamos de "embedado". Porque fizemos o embedding do código Python ao HTML.
+
+
+Para abrir uma server local :
+
+python manage.py runserver
+
+

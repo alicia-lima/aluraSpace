@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'galeria',
 ]
 
+''' 
+adicionado a o app galeria onde ficaram as imagens 
+
+'''
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +64,7 @@ ROOT_URLCONF = 'AluraSpace.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR), 'templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -71,7 +77,11 @@ TEMPLATES = [
         },
     },
 ]
-
+''' 
+'DIRS': [os.path.join(BASE_DIR), 'templates'] - garante que os directorios de arquivos HTML exibidos 
+são os da pasta templates que está na pasta raiz do projeto de AluraSpace sendo exibido mais 
+expecificamente o arquivo index.html.
+'''
 WSGI_APPLICATION = 'AluraSpace.wsgi.application'
 
 
@@ -122,10 +132,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'AluraSpace/static')
+]
+''' Onde vão ficar todos os arquivos estáticos '''
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 ''' 
