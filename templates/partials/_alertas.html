@@ -1,0 +1,8 @@
+{% if messages %}
+    <!-- Exibi a mensagem referente as respostas aos Inputs -->
+    {% for message in messages %}
+        <div class="alert alert-primary">
+            {{message}}
+        </div>
+    {% endfor %} 
+{% endif %}
