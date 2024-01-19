@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('usuarios.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
 ''' foi incluido a url da galeria - path('', include('galeria.urls')),
     foi icnluido a url de usuários - path('', include('usuarios.urls'))
     foi criado os arquivos de entrada de midia - (+ static(settings.MEDIA_URL, 
