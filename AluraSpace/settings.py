@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'galeria.apps.GaleriaConfig',
+    'usuarios.apps.UsuariosConfig'
 ]
 
 ''' 
-adicionado a o app galeria onde ficaram as imagens 
+adicionado o app galeria onde ficaram as imagens - galeria.app.GaleriaConfig
+adicionado o app usuarios onde ficam os cadastros de usuarios - usuarios.apps.UsuariosConfig
 
 '''
 
