@@ -1,7 +1,7 @@
 {% if messages %}
     <!-- Exibi a mensagem referente as respostas aos Inputs -->
     {% for message in messages %}
-        <div class="alert alert-primary">
+        <div class="alert alert-{{message.tags}}">
             {{message}}
         </div>
     {% endfor %} 
