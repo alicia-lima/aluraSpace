@@ -20,6 +20,11 @@
     <div class="pagina-inicial">
         <header class="cabecalho">
             <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+            {% for message in messages %}
+            <div class="alert alert-primary">
+                <p id="messeges"> {{message}}</p>
+            </div>
+            {% endfor %}
             <div class="cabecalho__busca">
                 <div class="busca__fundo">
                     <form action="{% url 'buscar' %}">
@@ -37,23 +42,26 @@
                     <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
                     <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/login.png' %}"> Login</a>
                     <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/survey.png' %}"> Cadastrar</a>
-                    <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
+                    <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
                 </nav>
             </section>
             <section class="galeria" style="margin-left: 5em">
-                <form action="" method="">
+                <!-- [url 'login'] direciona para o views def login e [POST] informa que são informações para banco de dados  -->
+                <form action="{% url 'login' %}" method="POST">
+                    <!--  Isse [{% csrf_token %} ] é um  code para segurança do form -->
+                    {% csrf_token %} 
                     <div class="row">
+                        {% for field in form.visible_fields %}
                         <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="nome_login" style="color:#D9D9D9; margin-bottom: 5px;"><b>Nome de Login</b></label>
-                            <input type="text" class="form-control" name="nome_login" placeholder="Ex.: João Silva" required>
+                            <!-- Cria a label do login a partir de uma class no forms.py -->
+                            <label for={{field.id_for_label}} style="color:#D9D9D9; margin-bottom: 5px;" > {{field.label}} </label>
+                            {{field}}
                         </div>
-                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="password" style="color:#D9D9D9; margin-bottom: 5px;"><b>Senha</b></label>
-                            <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button class="btn btn-success col-12" style="padding: top 5px;" type="submit">Login</button>
-                        </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <!-- Cria um botão-->
+                        <button class="btn btn-success col-12" style="padding: top 5px;" type="submit"> Logar </button>
                     </div>
                 </form>
             </section>
