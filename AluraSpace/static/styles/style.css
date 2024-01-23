@@ -408,7 +408,17 @@ table {
     --bs-alert-border-color: #b6d4fe;
 }
 
-/* código anterior omitido */
+.alert-success {
+    --bs-alert-color: #0f5132;
+    --bs-alert-bg: #d1e7dd;
+    --bs-alert-border-color: #badbcc;
+}
+
+.alert-danger {
+    --bs-alert-color: #842029;
+    --bs-alert-bg: #f8d7da;
+    --bs-alert-border-color: #f5c2c7;
+}
 
 .row {
     --bs-gutter-x: 1.5rem;
