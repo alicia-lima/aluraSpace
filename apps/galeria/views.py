@@ -35,6 +35,15 @@ def searchtag(request):
             fotografias = fotografias.filter(tag=tag_id)
     return render(request, 'galeria/buscar.html', {'cards': fotografias})
 
+def nova_imagem(request):
+    return render(request, 'galeria/nova_imagem.html')
+
+def deletar_imagem(request):
+    pass
+
+def editar_imagem(request):
+    pass
+
 ''' 
 
 Quando requerido o servidor de alura space será vizualizado no servidor o que tem em index.html 
