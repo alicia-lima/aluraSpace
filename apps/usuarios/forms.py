@@ -5,6 +5,9 @@ from django import forms
     [required = True] é um bool de preenchimento necessário 
     max_lengt são os caractér máximo de um Input 
     widget permite a edição de alguns caracteres do input 
+
+    forms.Form - Cria um formulário do zero 
+
 '''
 
 class LoginForms(forms.Form):

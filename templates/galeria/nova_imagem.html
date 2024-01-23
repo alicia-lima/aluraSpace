@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
             <section class="galeria" style="margin-left: 5em">
-                <!-- [url 'login'] direciona para o views def login e [POST] informa que são informações para banco de dados  -->
-                <form action="{% url 'login' %}" method="POST">
+                <!-- [url 'nova_imagem'] direciona para o views def login e [POST] informa que são informações para banco de dados  -->
+                <form action="{% url 'nova_imagem' %}" method="POST", enctype="multipart/form-data">
                     <!--  Isse [{% csrf_token %} ] é um  code para segurança do form -->
                     {% csrf_token %} 
                     <div class="row">
@@ -17,7 +17,7 @@
                     </div>
                     <div>
                         <!-- Cria um botão-->
-                        <button class="btn btn-success col-12" style="padding: top 5px;" type="submit"> Adicionar imagem </button>
+                        <button class="btn btn-success col-12" style="padding: top 5px;" type="submit"> Cadastrar nova fotografia </button>
                     </div>
                 </form>
             </section>
