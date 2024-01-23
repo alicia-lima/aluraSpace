@@ -26,15 +26,12 @@ def buscar(request):
         nome_a_buscar = request.GET['buscar']
         if nome_a_buscar:
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar)
-    return render(request, 'templates/galeria/buscar.html', {"cards": fotografias})
+    return render(request, 'templates/galeria/index.html', {"cards": fotografias})
 
-def searchtag(request):
-    fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True)
-    if request.method == 'GET':
-        tag_id = request.GET.get('tag_id').upper()
-        if tag_id:
-            fotografias = fotografias.filter(tag=tag_id)
-    return render(request, 'galeria/buscar.html', {'cards': fotografias})
+def filtro(request, categoria):
+    fotografias = Fotografia.objects.order_by('-data_fotografia').filter(publicada=True, tag=categoria)
+    
+    return render(request, 'galeria/index.html', {'cards': fotografias})
 
 def nova_imagem(request):
     if not request.user.is_authenticated:
